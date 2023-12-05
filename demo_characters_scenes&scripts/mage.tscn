@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7kfqkkwwx7in"]
+
+[ext_resource type="Script" path="res://demo_characters_scenes&scripts/mage.gd" id="1_jmqud"]
+[ext_resource type="Texture2D" uid="uid://dsrrghm071xw7" path="res://demo_characters/mage.png" id="2_a4u4a"]
+[ext_resource type="PackedScene" uid="uid://ps7oherwrlf5" path="res://character_menu.tscn" id="3_44j56"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy1ts"]
+bg_color = Color(0.894118, 0, 0.0666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w34yj"]
+bg_color = Color(0, 0.635294, 0.227451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="Mage" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.276
+anchor_bottom = 0.616
+offset_right = 0.0479736
+offset_bottom = -0.16803
+script = ExtResource("1_jmqud")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_iy1ts")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w34yj")
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 314.0
+offset_bottom = 25.0
+text = "hp:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_a4u4a")
+flip_h = true
+
+[node name="Character_Menu" parent="HBoxContainer" instance=ExtResource("3_44j56")]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="HBoxContainer/TextureRect" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/TextureRect" to="." method="_on_texture_rect_mouse_exited"]

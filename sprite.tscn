@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmfba5aoerg01"]
+
+[ext_resource type="Script" path="res://sprite.gd" id="1_0h0it"]
+
+[node name="Sprite" type="TextureRect"]
+offset_right = 556.0
+offset_bottom = 456.0
+scale = Vector2(0.25, 0.25)
+stretch_mode = 4
+script = ExtResource("1_0h0it")

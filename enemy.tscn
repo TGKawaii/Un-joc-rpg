@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://3ivco3hd376r"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_k34od"]
+[ext_resource type="Script" path="res://Control.gd" id="2_nd58s"]
+[ext_resource type="PackedScene" uid="uid://dmfba5aoerg01" path="res://sprite.tscn" id="2_sfg4e"]
+
+[node name="Enemy" type="VBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = -1013.0
+offset_bottom = -437.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_k34od")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("2_nd58s")
+
+[node name="Sprite" parent="Control" instance=ExtResource("2_sfg4e")]
+layout_mode = 2
+offset_top = -4.0
+offset_bottom = -4.0
+
+[connection signal="mouse_entered" from="Control/Sprite" to="." method="_on_sprite_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Sprite" to="." method="_on_sprite_mouse_exited"]

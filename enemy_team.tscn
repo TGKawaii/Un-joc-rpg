@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8aakbebv4k1s"]
+
+[ext_resource type="Script" path="res://enemy_team.gd" id="1_n5j0r"]
+
+[node name="Enemy_team" type="VBoxContainer"]
+offset_top = 1.0
+offset_right = 134.0
+offset_bottom = 436.0
+alignment = 1
+script = ExtResource("1_n5j0r")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://ps7oherwrlf5"]
+
+[ext_resource type="Script" path="res://character_menu.gd" id="1_otpta"]
+
+[node name="Character_Menu" type="Control"]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 147.0
+offset_right = 134.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_otpta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Attack" type="Button" parent="VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 27
+action_mode = 0
+text = "Atack"
+
+[node name="Spells" type="Button" parent="VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 27
+action_mode = 0
+text = "Spells"
+
+[node name="Inventory" type="Button" parent="VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 27
+action_mode = 0
+text = "Inventory"
+
+[connection signal="pressed" from="VBoxContainer/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="VBoxContainer/Spells" to="." method="_on_spells_pressed"]
+[connection signal="pressed" from="VBoxContainer/Inventory" to="." method="_on_inventory_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1qgwk4bkhdr6"]
+
+[ext_resource type="Script" path="res://player_team.gd" id="1_c3yxw"]
+
+[node name="player_team" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_c3yxw")

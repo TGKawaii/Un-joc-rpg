@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://csmmfhhgvp7me"]
+
+[ext_resource type="Script" path="res://demo_characters_scenes&scripts/maidden.gd" id="1_2vbwa"]
+[ext_resource type="Texture2D" uid="uid://dhssx6qu5xjup" path="res://demo_characters/maidden.png" id="2_rrx12"]
+[ext_resource type="PackedScene" uid="uid://ps7oherwrlf5" path="res://character_menu.tscn" id="3_ek3lf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy1ts"]
+bg_color = Color(0.894118, 0, 0.0666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w34yj"]
+bg_color = Color(0, 0.635294, 0.227451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="Maidden" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.111
+offset_right = 253.76
+offset_bottom = 282.56
+script = ExtResource("1_2vbwa")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_iy1ts")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w34yj")
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 314.0
+offset_bottom = 25.0
+text = "hp:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_rrx12")
+stretch_mode = 2
+flip_h = true
+
+[node name="Character_Menu" parent="HBoxContainer" instance=ExtResource("3_ek3lf")]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="HBoxContainer/TextureRect" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/TextureRect" to="." method="_on_texture_rect_mouse_exited"]
